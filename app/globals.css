@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0b0c0e;
+  --bg-secondary: #111316;
+  --bg-panel: #0f1012;
+  --border-rail: #1f2429;
+  --border-dim: #2a2f36;
+  --accent-teal: #4fb3a9;
+  --accent-teal-dim: #3d8a82;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --text-dim: #5f6368;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-panel: var(--bg-panel);
+  --color-border-rail: var(--border-rail);
+  --color-border-dim: var(--border-dim);
+  --color-accent: var(--accent-teal);
+  --color-accent-dim: var(--accent-teal-dim);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-dim: var(--text-dim);
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  height: 4px;
+  background: var(--border-rail);
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-teal);
+  border-radius: 50%;
+  margin-top: -5px;
+  border: 2px solid var(--bg-primary);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: var(--border-rail);
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-teal);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--accent-teal-dim);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--accent-teal-dim);
+}
+
+button {
+  font-family: inherit;
+}
+
+canvas {
+  image-rendering: pixelated;
 }
